@@ -1,0 +1,30 @@
+.Home .lander {
+	padding: 80px 0;
+	text-align: center;
+}
+
+.Home .lander h1 {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 600;
+}
+
+.Home .lander p {
+	color: #999;
+}
+
+#divRole
+{
+	padding-right: 25px;
+	color: #6A5ACD;
+	font-size: 30px;
+}
+
+#divSearch
+{
+	padding-bottom: 25px;
+}
+
+#txt_search
+{
+	width: 300px;
+}
