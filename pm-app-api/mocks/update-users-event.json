@@ -1,0 +1,9 @@
+{
+  "body": "{\"tx_user_name\":\"new\",\"tx_role\":\"new\",\"tx_stts\":\"Active\"}",
+  "pathParameters": { "id": "dc27b840-e2c7-11e8-82cb-7df0501084b5" },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

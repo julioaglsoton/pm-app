@@ -1,0 +1,4 @@
+{
+	"body": "{\"tx_to_adrs\":\"jagl1n18@soton.ac.uk\",\"tx_body_text\":\"Hey! What is up?\",\"tx_body_sbjt\":\"Email Subject\",\"tx_srce\":\"jagl1n18@soton.ac.uk\"}",
+	"requestContext":  { "identity": { "cognitoIdentityId": "USER-SUB-1234" } }
+}

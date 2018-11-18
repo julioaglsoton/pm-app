@@ -1,0 +1,9 @@
+{
+  "body": "{\"tx_prjt_name\":\"new project\"}",
+  "pathParameters": { "id": "a03ed880-e1ba-11e8-b493-11542526d310" },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

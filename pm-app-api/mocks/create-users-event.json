@@ -1,0 +1,8 @@
+{
+  "body": "{\"tx_user_name\":\"user2\",\"tx_role\":\"Admin\",\"tx_user_mail\":\"admin@example.com\",\"tx_stts\":\"Active\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "body": {
+    "tx_user_name": "user"
+  },
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

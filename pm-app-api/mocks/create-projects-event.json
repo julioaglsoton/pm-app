@@ -1,0 +1,8 @@
+{
+  "body": "{\"tx_prjt_name\":\"project2\",\"tx_stts\":\"Active\"}",
+  "requestContext": {
+    "identity": {
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}
