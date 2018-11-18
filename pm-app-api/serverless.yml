@@ -1,0 +1,207 @@
+service: pm-app-api
+
+# Use the serverless-webpack plugin to transpile ES6
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+# serverless-webpack configuration
+# Enable auto-packing of external modules
+custom:
+  webpack:
+    webpackConfig: ./webpack.config.js
+    includeModules: true
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: us-east-2
+
+  # 'iamRoleStatements' defines the permission policy for the Lambda function.
+  # In this case Lambda functions are granted with permissions to access DynamoDB.
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:DescribeTable
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource: "arn:aws:dynamodb:us-east-2:*:*"
+
+functions:
+# CREATE FUNCTIONS
+
+  create-users:
+    handler: create-users.main
+    events:
+      - http:
+          path: create-users
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  create-projects:
+    handler: create-projects.main
+    events:
+      - http:
+          path: create-projects
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+  create-users-and-projects:
+    handler: create-users-and-projects.main
+    events:
+      - http:
+          path: create-users-and-projects
+          method: post
+          cors: true
+          authorizer: aws_iam
+
+# GET FUNCTIONS
+
+  get-users:
+    handler: get-users.main
+    events:
+      - http:
+          path: get-users/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  get-projects:
+    handler: get-projects.main
+    events:
+      - http:
+          path: get-projects/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  get-users-by-project:
+    handler: get-users-by-project.main
+    events:
+      - http:
+          path: get-users-by-project/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  get-projects-by-user:
+    handler: get-projects-by-user.main
+    events:
+      - http:
+          path: get-projects-by-user/{id}
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+# LIST FUNCTIONS
+
+  list-users:
+    handler: list-users.main
+    events:
+      - http:
+          path: list-users
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  list-projects:
+    handler: list-projects.main
+    events:
+      - http:
+          path: list-projects
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  list-users-and-projects:
+    handler: list-users-and-projects.main
+    events:
+      - http:
+          path: list-users-and-projects
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+# UPDATE FUNCTIONS
+
+  update-users:
+    handler: update-users.main
+    events:
+      - http:
+          path: update-users/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+  update-projects:
+    handler: update-projects.main
+    events:
+      - http:
+          path: update-projects/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
+
+# DELETE FUNCTIONS
+
+  delete-users:
+    handler: delete-users.main
+    events:
+      - http:
+          path: delete-users/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  delete-projects:
+    handler: delete-projects.main
+    events:
+      - http:
+          path: delete-projects/{id}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+  delete-users-and-projects:
+    handler: delete-users-and-projects.main
+    events:
+      - http:
+          path: delete-users-and-projects/{idp}/{idu}
+          method: delete
+          cors: true
+          authorizer: aws_iam
+
+# EXTRA FUNCTIONS
+  send-mail:
+    handler: send-mail.main
+    events:
+      - http:
+          path: send-mail
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  get-users-by-name:
+    handler: get-users-by-name.main
+    events:
+      - http:
+          path: get-users-by-name
+          method: get
+          cors: true
+          authorizer: aws_iam
+
+  get-projects-by-name:
+    handler: get-projects-by-name.main
+    events:
+      - http:
+          path: get-projects-by-name
+          method: get
+          cors: true
+          authorizer: aws_iam
